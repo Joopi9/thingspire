@@ -59,7 +59,7 @@
 	
 	<update id="deleteBoard" parameterType="com.thingspire.demo.model.BoardVO">
 		UPDATE BOARD
-		   SET DEL_YN	= 'N'
+		   SET DEL_YN	= 'Y'
 		 WHERE BOARD_ID	= #{boardId}
 	</update>
 </mapper>

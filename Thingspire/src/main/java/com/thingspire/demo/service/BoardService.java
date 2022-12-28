@@ -20,13 +20,13 @@ public interface BoardService {
 	 * @return list
 	 */
 	List<BoardVO> selectBoardList(Criteria cri);
-
+	
 	/**
-	 * 게시판 개수 조회
+	 * 게시글 개수 조회
 	 * @return
 	 */
 	int selectBoardListCnt();
-	
+
 	/**
 	 * 게시글 상세 조회
 	 * @param boardVo
@@ -40,4 +40,5 @@ public interface BoardService {
 	 */
 	int updateBoard(BoardVO boardVo);
 
+	int deleteBoard(BoardVO boardVo);
 }

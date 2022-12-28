@@ -1,7 +1,9 @@
 package com.thingspire.demo.model;
 
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @ToString
 public class Criteria {
     // 특정 페이지 조회를 위한 클래스
@@ -20,11 +22,7 @@ public class Criteria {
         this.perPageNum = 10;
     }
  
-    // 현재 페이지 번호 page : getter, setter
-    public int getPage() {
-        return page;
-    }
- 
+    // 현재 페이지 번호 page : setter
     public void setPage(int page) {
         if(page <= 0) {
             this.page = 1;
@@ -34,12 +32,7 @@ public class Criteria {
         }    
     }
  
-    
-    // 페이지당 보여줄 게시글의 개수 perPageNum : getter, setter
-    public int getPerPageNum() {
-        return perPageNum;
-    }
- 
+    // 페이지당 보여줄 게시글의 개수 perPageNum : setter
     public void setPerPageNum(int perPageNum) {
         int cnt = this.perPageNum;
         

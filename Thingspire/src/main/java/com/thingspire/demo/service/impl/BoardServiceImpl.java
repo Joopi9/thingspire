@@ -34,11 +34,9 @@ public class BoardServiceImpl implements BoardService{
 		return boardXmlRepository.selectBoardList(cri);
 	}
 	
-	
 	/**
 	 * 게시글 개수 조회
 	 */
-	@Override
 	public int selectBoardListCnt() {
 		return boardXmlRepository.selectBoardListCnt();
 	}
@@ -51,9 +49,17 @@ public class BoardServiceImpl implements BoardService{
 		return boardXmlRepository.selectBoard(boardVo);
 	}
 
+	/**
+	 * 게시글 삭제
+	 */
 	@Override
 	public int updateBoard(BoardVO boardVo) {
 		return boardXmlRepository.updateBoard(boardVo);
+	}
+
+	@Override
+	public int deleteBoard(BoardVO boardVo) {
+		return boardXmlRepository.deleteBoard(boardVo);
 	}
 
 }

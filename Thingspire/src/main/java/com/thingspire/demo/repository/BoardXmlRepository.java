@@ -40,4 +40,11 @@ public interface BoardXmlRepository {
 	 */
 	int updateBoard(BoardVO boardVo);
 
+	/**
+	 * 게시글 삭제
+	 * @param boardVo
+	 * @return
+	 */
+	int deleteBoard(BoardVO boardVo);
+
 }

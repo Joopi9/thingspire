@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,9 +30,8 @@ value = "게시판"
 @RequestMapping("/board")
 @RequiredArgsConstructor
 public class BoardController {
-	
 	private final BoardService boardService;
-	
+
 	/**
 	 * 게시글 등록
 	 * @param boardVo
@@ -51,15 +51,12 @@ public class BoardController {
 		Map<String,Object> map = new HashMap<>();
 		//게시글 개수
 		int boardListCnt = boardService.selectBoardListCnt();
-		
 		Paging paging = new Paging();
 		paging.setCri(cri);
 		paging.setTotalCount(boardListCnt);
-		
 		List<BoardVO> list = boardService.selectBoardList(cri);
 		map.put("boardList", list);
 		map.put("paging", paging);
-		
 		return new Response(map);
 	}
 	/**
@@ -67,11 +64,11 @@ public class BoardController {
 	 * @param boardVo
 	 * @return boardVo
 	 */
-	@GetMapping
+	@GetMapping("/detail")
 	public Response selectBoard(BoardVO boardVo) {
 		return new Response(boardService.selectBoard(boardVo));
 	}
-	
+
 	/**
 	 * 게시글 수정
 	 * @param boardVo
@@ -80,5 +77,15 @@ public class BoardController {
 	@PatchMapping
 	public Response updateBoard(@RequestBody BoardVO boardVo) {
 		return new Response(boardService.updateBoard(boardVo));
+	}
+
+	/**
+	 * 게시글 삭제
+	 * @param boardVo
+	 * @return
+	 */
+	@DeleteMapping
+	public Response deleteBoard(@RequestBody BoardVO boardVo) {
+		return new Response(boardService.deleteBoard(boardVo));
 	}
 }
